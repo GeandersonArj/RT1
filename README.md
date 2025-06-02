@@ -1,4 +1,3 @@
-# RT1
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,14 +7,20 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Custom styles for better aesthetics and mobile responsiveness */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%; /* Ensure both take full width */
+            height: 100%; /* Ensure both take full height */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
         body {
             font-family: "Inter", sans-serif;
             background-color: #f0f4f8; /* Light blue-gray background */
-            display: flex;
-            justify-content: center;
-            align-items: flex-start; /* Align items to the top for better scrolling on mobile */
-            min-height: 100vh;
-            padding: 20px;
+            /* Removed display: flex, justify-content, align-items from body for block centering */
+            min-height: 100vh; /* Ensures body takes full viewport height */
+            padding: 20px; /* Padding around the main container */
             box-sizing: border-box;
         }
         .container {
@@ -28,6 +33,7 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+            margin: 0 auto; /* This is the key for horizontal centering of the block element */
         }
         h1, h2 {
             color: #1a202c; /* Darker text for headings */
@@ -172,8 +178,7 @@
         /* Responsive adjustments */
         @media (max-width: 640px) {
             body {
-                padding: 10px;
-                align-items: flex-start;
+                padding: 10px; /* Adjusted padding for smaller screens */
             }
             .container {
                 padding: 16px;
@@ -195,7 +200,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+<body class="bg-gray-100">
     <div class="container">
         <h1 class="text-3xl font-bold text-center text-gray-800 mb-4 no-print">Relatório Técnico</h1>
 
