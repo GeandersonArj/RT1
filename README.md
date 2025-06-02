@@ -142,11 +142,18 @@
 
         /* Styles for printing */
         @media print {
+            html, body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: auto; /* Auto height for print */
+                overflow: visible; /* Allow content to flow */
+            }
             body {
                 background-color: #fff;
-                padding: 0;
-                margin: 0;
                 display: block;
+                min-height: auto;
+                padding: 0; /* Remove padding for print */
             }
             .container {
                 box-shadow: none;
@@ -154,9 +161,10 @@
                 padding: 0;
                 max-width: none;
                 width: auto;
+                margin: 0; /* Remove auto margin for print */
             }
             .no-print {
-                display: none !important;
+                display: none !important; /* Ensure anything with no-print is hidden */
             }
             .section-card {
                 box-shadow: none;
@@ -165,13 +173,30 @@
                 page-break-inside: avoid; /* Prevent breaking inside a section */
             }
             .photo-preview {
-                max-width: 100%; /* Ensure images fit within print area */
+                max-width: 100% !important; /* Ensure images fit within print area */
+                display: block !important; /* Force display for print */
             }
             .photo-comment {
-                border: none; /* No border for comments in print */
-                padding: 0;
-                margin-top: 2px;
-                font-size: 0.8em;
+                border: none !important; /* No border for comments in print */
+                padding: 0 !important;
+                margin-top: 2px !important;
+                font-size: 0.8em !important;
+                display: block !important; /* Force display for print */
+                background-color: transparent !important; /* Ensure no background in print */
+                color: #000 !important; /* Ensure text is black */
+                resize: none !important; /* Disable resizing in print */
+                overflow: visible !important; /* Ensure all content is visible */
+                height: auto !important; /* Allow height to adjust to content */
+            }
+            textarea { /* General textarea style for print */
+                border: none !important;
+                background-color: transparent !important;
+                color: #000 !important;
+                resize: none !important;
+                overflow: visible !important;
+                height: auto !important;
+                padding: 0 !important;
+                margin: 0 !important;
             }
         }
 
@@ -202,7 +227,7 @@
 </head>
 <body class="bg-gray-100">
     <div class="container">
-        <h1 class="text-3xl font-bold text-center text-gray-800 mb-4 no-print">Relatório Técnico</h1>
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-4">Relatório Técnico</h1>
 
         <div class="section-card">
             <h2 class="text-2xl font-semibold text-gray-700"> Relatório</h2>
