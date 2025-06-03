@@ -176,6 +176,9 @@
                 max-width: 100% !important; /* Ensure images fit within print area */
                 display: block !important; /* Force display for print */
             }
+            .photo-preview[src*="placehold.co"] { /* Hides placeholder image on print */
+                display: none !important;
+            }
             .photo-comment {
                 border: none !important; /* No border for comments in print */
                 padding: 0 !important;
@@ -197,6 +200,10 @@
                 height: auto !important;
                 padding: 0 !important;
                 margin: 0 !important;
+            }
+            input[type="text"]::placeholder,
+            textarea::placeholder { /* Hides placeholder text on print */
+                color: transparent !important;
             }
         }
 
